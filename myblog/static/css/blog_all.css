@@ -1,0 +1,618 @@
+
+*{
+    font-family: "Zen Maru Gothic", serif;
+}
+/*header*/
+header {
+    background-color: #ceeadbb3;
+    height: 5rem;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+}
+
+/*検索フォーム*/
+.hd-btn{
+    position: relative;
+	display: inline-block;
+	line-height: 1;
+    color: #aaa;
+    margin-top: 20px;
+}
+.hd-btn:after{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 10px;
+	margin: auto;
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;
+	content: '\f002';
+	color: #aaa;
+}
+.fas{
+    width: 300px;
+	padding: 10px calc(1em + 20px) 10px 10px;
+	border: 1px solid #aaa;
+	background: #fff;
+	color: #aaa;
+}
+.fas:focus{
+	outline:0;
+}
+
+/*アイコンのスタイル*/
+
+.hd-con {
+    display: flex;
+    justify-content: space-around  /*要素間のスペースを均等に配分する*/
+}
+
+.hd-icon{
+   position: absolute;
+   right: 40px;
+   font-size: 30px;
+}
+
+/*メニューのスタイル*/
+.hd-menu {
+    display: flex;
+    align-items: center; /* アイテムを垂直方向に中央寄せ */
+    margin-top: -20px;
+}
+
+.hd-name,
+.hd-item {
+    
+   right: 40px; /* アイテム間の間隔を調整 */
+    margin-top: 100px;
+}
+
+.hd-item{
+    position: absolute;
+   right: 40px;
+   font-size: 30px;
+}
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+/*Main画像*/
+.main-img{
+    background-image: url(/img/yuki.jpg);
+    width:100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center top 650px;
+    margin-bottom: 50px;
+    margin-top: 190px;
+}
+
+/*text*/
+p{
+    margin-top: -30px;
+    font-size: 30px;
+    color: gray;
+}
+h2{
+    font-size: 80px;
+    text-align: center;
+    color: #445c53;
+    font-family: "Tsukimi Rounded", sans-serif;
+    margin-top: -10px;
+}
+/*登録ボタン*/
+.btn{
+    text-align: center;
+    margin-top: -30px;
+    margin-bottom: 80px;
+}
+.register-btn{
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    font-size: 30px;
+    border: none; 
+    border-radius: 10px;
+    background-color: #ceeadbb3; 
+    color: #445c53;
+    line-height: 60px;
+}
+
+/******************************************************************
+******************ブログホーム
+********************************************************************/
+
+/*blogの内容を横並びする*/
+ ul{
+    display: flex;
+    margin-bottom:60px ; /*横並びにする*/
+    gap: 0 30px; /*隙間を作る*/
+    list-style: none; /*箇条書きの・を削除*/
+    
+}
+.category li{
+    width: 30%; /*横並べる*/
+}
+.category li img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;/*高さを固定したまま画面幅に合わせて画像を伸縮させる*/
+}
+.category{
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+}
+
+/*タイトルbtn*/
+.category-img{
+    position: relative;
+}
+.category-title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 80px;
+    transform: translate(-50%,-50%);/*タイトルを真ん中位置に配置*/
+
+}
+.category-btn{
+   display: inline-block;
+   width: 100%;
+   height: 60px;
+   line-height: 60px;
+   text-align: center;
+   border: 0px solid transparent;
+   border-radius: 50px;
+   background-color: white;
+   font-size: 35px;
+   font-family: "Slackside One", cursive;
+   font-weight: 400;
+   font-style: normal;
+   color: #6cdad3;
+} 
+
+footer {
+    position: relative; 
+    margin-top: 50px ;
+    width: 100%;
+    text-align: center;
+    padding: 5px ;
+    padding-top: 40px ;
+    background-color: #ceeadbb3;
+    color: #fff;
+}
+/**************
+*ブログリスト
+**************/
+.all-flex {
+    display: flex; /* フレックスレイアウトを使用 */
+    flex-wrap: wrap; /* 必要に応じてアイテムを折り返す */ 
+    gap: 10px; /* アイテム間の間隔を縮小 */
+}
+
+.all-article {
+    width: calc(33.33% - 20px); /* アイテムの幅を設定（マージンを考慮して計算） */
+    margin-left: 150px; /* アイテム間のマージンを設定 */
+    margin-bottom: 30px;
+    background-color: #f2f2f2; /* アイテムの背景色を設定 */
+    padding: 20px; /* アイテムの内側の余白を設定 */
+    border-radius: 10px; /* アイテムの角丸を設定 */
+    box-sizing: border-box; /* PaddingとBorderを含めた幅と高さの計算を行う */
+    overflow: hidden; /* コンテンツがはみ出さないようにする */
+    height: 350px; /* 固定の高さを設定 */
+    display: flex; /* フレックスレイアウトを使用 */
+    flex-direction: column; /* 縦方向にアイテムを並べる */
+   
+}
+
+#all-img {
+    width: 100%; /* 親要素の幅に合わせる */
+    height: 200px; /* 固定の高さを設定 */
+    object-fit: cover; /* 確保照片填充整个区域 */
+    border-radius: 10px; /* アイテムの角丸を設定 */
+}
+
+.all-colum {
+    display: block; /* ブロックレベルの要素に設定 */
+    text-decoration: none; /* リンクの下線を削除 */
+    color: #333; /* テキストの色を設定 */
+}
+
+.all-category {
+    margin-bottom: 10px; /* カテゴリのマージンを設定 */
+}
+
+.all-category p {
+    margin: 0; /* 段落要素のマージンをリセット */
+}
+
+/*************************************************
+*            blog登録画面
+**************************************************/   
+
+ /*h2*/
+.main-inner{
+    width: 100%;
+    padding-top: 10rem;
+ }
+.main-inner h2{
+    font-size: 3rem;
+    font-family: "Zen Maru Gothic", serif;
+    border-bottom: 1px solid #445c53;
+   padding-bottom: 30px;
+}
+
+
+/*フォームコンテナ*/
+.form-con{
+    padding-top: 30px;
+    width: 100%;
+    height: 600px;
+    font-size: 20px;
+    color: #445c53;
+    padding-bottom: 50px;
+ 
+
+}
+.reg-text{
+   display: flex; /* 子要素を横に並べる */
+   align-items: center; 
+   margin-bottom: 10px;
+   padding: 5px;
+   margin-left: 30%; 
+   text-align: center;
+}
+ 
+/*入力欄*/  
+input {
+    font-size: 20px;
+    padding: 20px;
+    width: 500px;
+    border: 1px solid #445c53; /* 境界線のスタイル */
+    border-radius: 3px; /* 角を丸くする */
+    box-sizing: border-box; /* paddingとborderを含めた要素の全体のサイズを設定 */
+    outline-color: #ed9646;
+}
+#reg-text-op{
+    width: 500px;
+    height: 50px;
+    outline-color: #ed9646;
+    font-size: 20px;
+}
+
+
+/*項目名*/
+.reg-text div {
+    width: 150px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin-right: 50px;  /* input と div の間にスペースを設定 */
+    flex: 0 0 auto;
+}
+/*ボタン*/
+.delete-btn{
+    background-color: #ed9646;
+    margin-left: 100px;
+}
+.reg-btn{
+    background-color: #f19358;
+}
+.back-btn{
+    background-color: #445c53;
+}
+.reg-text button {
+    padding: 5px ;
+    width: 100px;
+    height: 50px;
+    border: none;
+    font-size: 20px;
+    color: #445c53;
+    color: white;
+    border-radius: 3px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.reg-btn{
+    margin-left: 220px;
+    margin-right: 100px;
+}
+
+form .reg-de-btn{
+    background-color: rgb(128, 128, 192) !important;
+    margin-left: 310px !important;
+    margin-top: 200px;
+}
+
+#reg-form{
+	border: none;
+}
+textarea {
+    width: 500px;
+    height: 200px;
+}
+
+#reg-img {
+    max-width: 200px; 
+    max-height: 200px; 
+}
+/************************************************************************
+*                          blog 記事一覧
+*************************************************************************/
+
+
+ /***************************************************
+ *   記事閲覧
+ ***************************************************/
+
+/* 基本样式 */
+.br-main-inner {
+    max-width: 800px; /* 设置主要内容区域的最大宽度 */
+    margin: 150px  auto 0; /* 居中对齐 */
+    padding: 20px; /* 内边距 */
+    height: auto;
+}
+
+.art-header {
+    margin-bottom: 20px; /* 文章标题和分类/更新时间之间的间距 */
+}
+
+.art-header h1 {
+    margin: 0; /* 移除标题的默认外边距 */
+    font-size:50px;
+}
+
+.art-content {
+    margin-top: 20px; /* 文章内容与其他元素之间的间距 */
+}
+
+.art-content p{
+	margin-top: 10px;
+	font-size: 18px;
+}
+.art-comments {
+    margin-top: 40px; /* 评论部分与文章内容之间的间距 */
+}
+
+.art-comments h3{
+	font-size: 25px;
+}
+.comment {
+    display: flex; /* 使用flex布局 */
+    gap: 10px; /* 设置内部元素之间的间距 */
+}
+
+.comment input[type="text"] {
+    padding: 10px; /* 输入框的内边距 */
+    font-size: 20px; /* 字体大小 */
+    border: 1px solid #ccc; /* 边框样式 */
+    border-radius: 5px; /* 边框圆角 */
+}
+
+.comment-btn {
+    display: flex; /* 使用flex布局 */
+    gap: 10px; /* 设置按钮之间的间距 */
+}
+
+.comment-btn button {
+    padding: 10px 20px; /* 按钮的内边距 */
+    font-size: 16px; /* 字体大小 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 按钮圆角 */
+    cursor: pointer; /* 鼠标悬停样式 */
+}
+
+.comment-btn button:first-child {
+    background-color: #ccc; /* 取消按钮的背景颜色 */
+}
+
+.comment-btn button:last-child {
+    background-color: #007bff; /* 公开按钮的背景颜色 */
+    color: #fff; /* 文字颜色 */
+}
+
+#alt-c,#alt-t{
+	font-size: 18px;
+	margin-top: 2px;
+}
+
+/************************************************************
+***********************カテゴリー一覧*************************
+************************************************************/
+#register-btn-ca {
+    width: 200px;
+    font-size: 20px;
+    margin-bottom: 30px;
+    background-color: #f19358;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 20px; /* 距离底部的距离 */
+    right: 20px; 
+}
+
+.ca-con {
+    width: 80%;
+    border-collapse: collapse;
+    margin-left: 10%;
+    table-layout: fixed;
+    margin-bottom: 10%;
+ 
+}
+
+.ca-project, .ca-td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    color: #445c53;
+    text-align: center;
+    font-size: 20px;
+     width: 25%;
+}
+
+.ca-project {
+    background-color: #f2f2f2;
+}
+
+#ca-delete,#ca-edit {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    border: none; 
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+#ca-edit{
+    background-color: #f0b92c;
+}
+#ca-delete{
+    background-color: #b476ee;
+}
+#ca-edit:hover, #ca-delete:hover {
+    text-decoration: underline;
+}
+.ca-td img {
+    max-width: 100%; 
+    height: auto;
+}
+
+.main-inner {
+    overflow-y: auto; 
+}
+
+/************************************************************
+***********************記事一覧*************************
+************************************************************/
+.view-flex {
+    display: flex; /* 子要素を横並びに */
+    flex-wrap: wrap; /* 子要素が横幅を超えたら折り返す */
+    width: 100%;
+    height: 350px;
+    margin-bottom: 100px;
+    border: 1px solid #333;
+   
+}
+.view-con{
+	left: 30px;
+	padding-top: 60px;
+	max-width: 90%;
+	margin: 0 auto;
+}
+.view-article-container {
+    display: flex; /* 子元素横向排列 */
+    flex-wrap: wrap; /* 子元素溢出时换行 */
+    margin-top: 10px; 
+}
+.view-article {
+    flex: 1.5; /* 让两个子元素平均分配空间 */
+    margin-right: 0; /* 移除右侧边距 */
+}
+
+#at2{
+	width: 8.5;
+	margin-left: 0;
+	flex: 7; 
+	border-left:1px solid #333 ;
+}
+
+
+
+
+.view-column {
+    display: block; /* リンクをブロック要素化 */
+    text-decoration: none; /* 下線をなくす */
+    color: #666; /* テキストカラー */
+    width: 350px;
+}
+
+
+/* カテゴリ名 */
+.view-category p {
+   text-align: center;
+    font-size: 60px; /* フォントの太さ */
+    text-align:left;
+    font-weight: bolder;
+    padding: 5px ;
+    width: 60px;
+    height: 50px;
+    border: none;
+    font-size: 30px;
+    background-color: #6cdad3;
+    color:  white;
+    border-radius: 3px;
+    margin-bottom: 0;
+    
+}
+
+/* 記事タイトル */
+.column-box p {
+    margin: 5px 0; /* 上下のマージン */
+    text-align: center;
+    font-size: 35px; /* フォントの太さ */
+    font-weight: bolder;
+    border-bottom: 3px double #666;
+    margin-top: 25px;
+}
+
+/* 記事本文 */
+.view-article p {
+    margin: 5px 0; /* 上下のマージン */
+    font-size: 25px; /* フォントサイズ */
+    color: #666; /* テキストカラー */
+    margin-top: 25px;
+    
+}
+#bg-btn {
+    width: 180px;
+    font-size: 25px;
+    margin-bottom: 20px;
+    background-color: #f19358;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+    position: fixed;
+    bottom: 20px; /* 距离底部的距离 */
+    right: 20px; 
+    ;
+}
+.view-article img {
+    width: 350px; /* 幅を200ピクセルに設定 */
+    height: 350px; /* 高さを200ピクセルに設定 */
+    object-fit: cover; /* 画像を要素内にフィットさせます */
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

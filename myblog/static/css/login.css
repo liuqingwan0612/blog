@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
+body {
+     /*背景図*/
+      width: 85% ;
+      background-image: url(/img/img1.jpg);
+      background-repeat: no-repeat;
+      background-size: 110%;
+
+      font-family: 'Vibur', cursive;
+      font-family: 'Abel', sans-serif;
+      
+
+      margin-left: 30px;
+      margin-top: 40px;    
+}
+
+/*フオーム全体のスタイル*/
+form{
+    width: 450px;
+    height: 470px;
+    margin: 12% auto;
+    padding: 2%;
+    text-align: center;
+    border-radius: 10px;    /* フォームの角を丸くする */
+    background-color: rgba(255, 255, 255, 0.8);   /* フォームの背景色を設定 */ 
+}
+
+
+/*フオームのコンテナ*/
+.con{
+    display: flex;  /* フレックスボックスを作成 */
+    flex-direction: column;   /* 要素を縦方向に配置 */
+    margin-left: 200px;
+}
+
+/*header全体のスタイル*/
+header{
+    text-align: center;
+    margin-top:  -30px;
+}
+
+/*h2要素のスタイル*/
+h2{
+    font-size: 250%;
+    font-family: 'Playfair Display', serif;
+    color:  #3e403f;
+}
+
+/*pの提示語*/
+p{
+    letter-spacing: 0.05em;/*文字間のスペース*/
+    margin-top: -20px;
+    font-size: small;
+    padding-bottom: 10px;
+}
+
+/*入力欄のスタイル*/
+.field{
+    width: 100%;
+    height: 100px;
+    text-align:center;
+}
+
+/*アイコンのスタイル*/
+.icon{
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Abel', sans-serif; 
+	font-weight: 500; 
+    color: rgb(56, 181, 212);
+   font-size: 20px;
+   display: block;/*アイコンが別の行に表示*/
+   width: 200px;
+   text-align: right ;
+}
+
+/*入力欄*/
+.input{
+    width: 350px;
+    height: 50px;
+    
+    font-size: 16px;
+    font-family: 'Abel', sans-serif;
+    color:#5E6472;
+
+    border: none;
+    background-color: #f2eb98;
+    outline-color: #38b5d4;/*クリックした境界線の色*/
+
+    border-radius: 30px 30px 30px 30px;
+}
+
+/*placeholder文字を水平中央に配置*/
+.input::placeholder{
+    text-align: center;
+}
+
+/*ログインボタン */
+.log-btn{
+    width: 200px;
+    height: 65px;
+    text-align: center;
+
+    border: none;
+    border-radius: 30px 30px 30px 30px;
+    
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    background-color: rgba(245, 133, 154, 0.952);
+    color: aliceblue;
+    font-size: 24px;
+    font-family: 'Abel', sans-serif;
+}
+
+/*その他ボタン*/
+
+.figt-btn {
+    width: 220px;
+    height: 40px; /* ボタンの高さを調整する */
+    font-family: 'Abel', sans-serif;
+    color: #5E6472;
+    font-size: medium;
+    background-color: #fff; /* 背景色を追加する */
+    border: 1px solid #5E6472; /* ボーダーを追加する */
+    border-radius: 5px; /* 角丸を追加する */
+    display: inline-block; /* ボタンを一行に表示する */
+    text-align: center;
+    text-decoration: none; /* デフォルトのリンクスタイルを削除する */
+}
+
+.figt-btn:hover {
+    background-color: #f0f0f0; /* ホバー時の背景色を変更する */
+}
+
+.sign-btn {
+    width: 220px;
+    height: 40px;
+    font-family: 'Abel', sans-serif;
+    color: #38b5d4;
+    font-size: medium;
+    background-color: #fff; 
+    border: 1px solid #38b5d4; 
+    border-radius: 5px; 
+    display: inline-block; 
+    text-align: center; 
+    line-height: 40px; /* テキストを垂直方向に中央揃えする */
+    text-decoration: none; 
+}
+
+.sign-btn:hover {
+    background-color: #f0f0f0; 
+}
+
+.warning-message {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}
+
+
+

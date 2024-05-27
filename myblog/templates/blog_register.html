@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ブログ登録</title>
+	<link rel="stylesheet" th:href="@{/css/all.min.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Alike&family=Kolker+Brush&family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/blog_all.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css}">
+
+<body onload="modifyBlog()">
+
+	<!--header-->
+	<header>
+		<div class="hd-con">
+			<div class="hd-btn">
+				<input id="searchInput" class="fas" type="text" placeholder="検索">
+			</div>
+			<div>
+				<ul class="hd-icon">
+					<li>
+						<a th:href="@{https://x.com/X}">
+							<i class="fab fa-twitter-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.facebook.com/TwitterInc}">
+							<i class="fab fa-facebook-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.instagram.com/twitter/}">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://line.me/en/}">
+							<i class="fab fa-line"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="hd-menu">
+			<!-- userName表示-->
+			<div class="hd-name">
+				<p th:text="${userName}">さん</p>
+			</div>
+
+			<!--メニューリスト-->
+			<ul class="hd-item">
+				<li class="hd-list-item"><a th:href="@{/blog/all}">ホーム</a></li>
+				<li class="hd-list-item"><a th:href=" @{/blog/list}">記事一覧</a></li>
+				<li class="hd-list-item"><a th:href="@{/category/all}">カテゴリ一覧</a></li>
+				<li class="hd-list-item">
+					<a th:href="@{/blog/logout}">ログアウト</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</header>
+	<main>
+		<div>
+			<section class="main-inner">
+				<h2>記事登録</h2>
+				<form th:action="@{/blog/register}" method="post" enctype="multipart/form-data">
+					<div class="form-con">
+						<div class="reg-text">
+							<div>タイトル</div>
+							<input type="text" name="blogTitle">
+						</div>
+
+						<div class="reg-text">
+							<div>カテゴリー名</div>
+							<select id="reg-text-op" name="categoryName">
+								<option th:each="category : ${categoryList}" th:value="${category.categoryName}">
+									<span th:text="${category.categoryName}"></span>
+								</option>
+
+							</select>
+						</div>
+
+
+						<div class="reg-text">
+							<div>ブログ画像</div>
+							<input type="file" name="blogImage">
+						</div>
+
+						<div class="reg-text">
+							<div>発表時間</div>
+							<input type="datetime-local" name="updateTime" th:value="${formattedUpdateTime}" required>
+						</div>
+
+						<div class="reg-text">
+							<div>メッセージ</div>
+							<textarea name="article" id=""></textarea>
+						</div>
+						<input type="hidden" name="userId" th:value="${userId}">
+						<div class="reg-text">
+							<button class="reg-btn">登録</button>
+							<button class="back-btn" onclick="history.back();" type="button">戻る</button>
+						</div>
+
+					</div>
+				</form>
+			</section>
+		</div>
+	</main>
+	<div>
+
+		<footer>
+			<p>&copy;2024 MyBlog Style</p>
+		</footer>
+	</div>
+
+	<script>
+		// 获取当前时间并格式化为适用于datetime-local输入类型的字符串
+		function getCurrentDateTime() {
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = ('0' + (now.getMonth() + 1)).slice(-2);
+			var day = ('0' + now.getDate()).slice(-2);
+			var hours = ('0' + now.getHours()).slice(-2);
+			var minutes = ('0' + now.getMinutes()).slice(-2);
+			return year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
+		}
+
+		// 设置input元素的value属性为当前时间
+		document.querySelector('input[name="updateTime"]').value = getCurrentDateTime();
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script th:src="@{/js/common.js}"></script>
+
+
+</body>
+
+</html>

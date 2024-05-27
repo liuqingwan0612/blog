@@ -1,0 +1,84 @@
+
+/*背景図スタイル*/
+body{
+    
+    background-image: url(/img/mountain.jpg);
+    background-size: cover;
+    background-position: center top -120px  ;
+    background-attachment: fixed;
+}
+
+/* フオームのスタイル*/
+.form-group{
+    width: 450px;
+    height: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 200px;
+    padding:10px 10px ;
+
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);  /* フォームの背景色を設定 */ 
+}
+
+/*h2要素のスタイル*/
+h2{
+    font-size: 200%;
+    font-family: 'Playfair Display', serif;
+    color:  #3e403f;  
+}
+
+/*入力欄のスタイル*/
+.input-group{
+    position: relative;
+    line-height:2; 
+}
+
+/*アイコンスタイル*/
+.input-icon{
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	font-family: "Font Awesome 5 Free"; 
+	font-weight: 900;
+    font-size: 25px;
+	color: #e873b7; 
+    
+}
+
+/*入力欄*/
+.input-text{
+    width: 300px;
+    height: 50px;
+	
+    margin: 10px;
+
+	border: none;
+    border-radius: 30px 30px 30px 30px;
+
+	background: #ddeff4;
+    font-size: 16px;
+	outline-color: #f6f0c0;
+}
+
+.input-text::placeholder{
+    text-align: center;
+}
+
+/*button*/
+.btn{
+    height: 40px;
+    padding: 10px 50px;
+    line-height: 1;
+    background-color:#73b2f1 ;
+    border: none;
+	color: #fff;
+	border-radius: 25px 25px 25px 25px;
+	font-size: medium;
+    margin-top: 15px;   
+}
+
+.warning-message {
+    color: red;
+    text-align: center;
+    font-size: 15px;
+}

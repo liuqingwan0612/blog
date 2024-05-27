@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>記事閲覧画面</title>
+	<link rel="stylesheet" th:href="@{/css/all.min.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Alike&family=Kolker+Brush&family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/blog_all.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css}">
+</head>
+
+<body>
+	<!--header-->
+	<header>
+		<div class="hd-con">
+			<div class="hd-btn">
+				<input id="searchInput" class="fas" type="text" placeholder="検索">
+			</div>
+			<div>
+				<ul class="hd-icon">
+					<li>
+						<a th:href="@{https://x.com/X}">
+							<i class="fab fa-twitter-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.facebook.com/TwitterInc}">
+							<i class="fab fa-facebook-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.instagram.com/twitter/}">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://line.me/en/}">
+							<i class="fab fa-line"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="hd-menu">
+			<!-- userName表示-->
+			<div class="hd-name">
+				<p th:text="${userName}">さん</p>
+			</div>
+
+			<!--メニューリスト-->
+			<ul class="hd-item">
+				<li class="hd-list-item"><a th:href="@{/blog/all}">ホーム</a></li>
+				<li class="hd-list-item"><a th:href=" @{/blog/list}">記事一覧</a></li>
+				<li class="hd-list-item"><a th:href="@{/category/all}">カテゴリ一覧</a></li>
+				<li class="hd-list-item">
+					<a th:href="@{/blog/logout}">ログアウト</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</header>
+	<main>
+		<section class="br-main-inner">
+			<div>
+
+				<div class="art-header">
+					<h1 th:text="${blogs.blogTitle}"></h1>
+				</div>
+				<div>
+					<p id="alt-c" th:text="${blogs.categoryName}"></p>
+					<p id="alt-t" th:text="${formattedUpdateTime}"></p>
+				</div>
+				<div clas="arti-img">
+					<img th:src="@{/blog-image/{items}(items=${blogs.blogImage})}">
+				</div>
+
+				<div class="art-content">
+					<P th:text="${blogs.article}"></P>
+				</div>
+			</div>
+
+
+			<!-- customize labels of htmlcommentbox.com -->
+			<script>
+				/* This code goes ABOVE the main HTML Comment Box code!
+				 replace the text in the single quotes below to customize labels.*/
+				hcb_user = {
+					/* L10N */
+					comments_header: 'コメントを書く',
+					name_label: '名前',
+					content_label: '内容',
+					submit: '公開',
+					logout_link: '<img title="log out" src="https://www.htmlcommentbox.com/static/images/door_out.svg" alt="[logout]" class="hcb-icon hcb-door-out"/>',
+					admin_link: '<img src="https://www.htmlcommentbox.com/static/images/door_in.svg" alt="[login]" class="hcb-icon hcb-door-in"/>',
+					add: 'コメント追加',
+					again: 'コメント追加',
+					said: 'said:',
+					prev_page: '<img src="https://www.htmlcommentbox.com/static/images/arrow_left.png" class="hcb-icon" title="previous page" alt="[prev]"/>',
+					next_page: '<img src="https://www.htmlcommentbox.com/static/images/arrow_right.png" class="hcb-icon" title="next page" alt="[next]"/>',
+					showing: 'Showing',
+					to: 'to',
+					email_label: 'email',
+					add_image: '画像添付',
+
+					reply: '返信',
+					flag: 'フラグ',
+					like: 'いいね',
+
+					/* dates */
+					days_ago: '日前',
+					hours_ago: '時間前',
+					minutes_ago: '分前',
+					within_the_last_minute: 'たった今',
+
+
+					err_bad_html: 'Your comment contained bad html.',
+					err_bad_email: 'Please enter a valid email address.',
+					err_too_frequent: 'You must wait a few seconds between posting comments.',
+					err_comment_empty: 'Your comment was not posted because it was empty!',
+					err_denied: 'Your comment was not accepted.',
+					err_unknown: 'Your comment was blocked for unknown reasons, please report this.',
+					err_spam: 'Your comment was detected as spam.',
+					err_blocked: 'Your comment was blocked by site policy.',
+
+					/* SETTINGS */
+					MAX_CHARS: 8192,
+					PAGE: '', /* ID of the webpage to show comments for. defaults to the webpage the user is currently visiting. */
+					ON_COMMENT: function () { }, /* Function to call after commenting. */
+					RELATIVE_DATES: true /* show dates in the form "X hours ago." etc. */
+				};
+			</script>
+			<!-- done customizing labels of htmlcommentbox.com -->
+			<!-- begin wwww.htmlcommentbox.com -->
+			<div id="HCB_comment_box">新的评论框内容</div>
+			<link rel="stylesheet" type="text/css"
+				href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+			<script type="text/javascript" id="hcb">
+				if (!window.hcb_user) {
+					hcb_user = {};
+				}
+				hcb_user.language = "ja"; // 设置评论框语言为日语
+				(function () {
+					var s = document.createElement("script"),
+						l = hcb_user.PAGE || ("" + window.location).replace(/'/g, "%27"),
+						h = "https://www.htmlcommentbox.com";
+					s.setAttribute("type", "text/javascript");
+					s.setAttribute("src", h + "/jread?page=" + encodeURIComponent(l).replace("+", "%2B") + "&mod=%241%24wq1rdBcg%24TFi6D6gIe%2FahDWoOD8.L70" + "&opts=16798&num=10&ts=1716782268024");
+					if (typeof s != "undefined") document.getElementsByTagName("head")[0].appendChild(s);
+				})();
+			</script>
+			<!-- end www.htmlcommentbox.com -->
+
+
+			</div>
+		</section>
+
+	</main>
+
+	<footer>
+		<p>&copy;2024 MyBlog Style</p>
+	</footer>
+
+</body>
+
+</html>

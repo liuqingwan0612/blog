@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>記事一覧</title>
+	<link rel="stylesheet" th:href="@{/css/all.min.css}">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Alike&family=Kolker+Brush&family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&family=Rampart+One&family=Shizuru&family=Slackside+One&family=Tsukimi+Rounded&family=Yuji+Hentaigana+Akebono&family=Zen+Maru+Gothic&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" th:href="@{/css/blog_all.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css}">
+
+<body>
+	<!--header-->
+	<header>
+		<div class="hd-con">
+			<div class="hd-btn">
+				<input id="searchInput" class="fas" type="text" placeholder="検索">
+			</div>
+			<div>
+				<ul class="hd-icon">
+					<li>
+						<a th:href="@{https://x.com/X}">
+							<i class="fab fa-twitter-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.facebook.com/TwitterInc}">
+							<i class="fab fa-facebook-square"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://www.instagram.com/twitter/}">
+							<i class="fab fa-instagram"></i>
+						</a>
+					</li>
+					<li>
+						<a th:href="@{https://line.me/en/}">
+							<i class="fab fa-line"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="hd-menu">
+			<!-- userName表示-->
+			<div class="hd-name">
+				<p th:text="${userName}">さん</p>
+			</div>
+
+			<!--メニューリスト-->
+			<ul class="hd-item">
+				<li class="hd-list-item"><a th:href="@{/blog/all}">ホーム</a></li>
+				<li class="hd-list-item"><a th:href=" @{/blog/list}">記事一覧</a></li>
+				<li class="hd-list-item"><a th:href="@{/category/all}">カテゴリ一覧</a></li>
+				<li class="hd-list-item">
+					<a th:href="@{/blog/logout}">ログアウト</a>
+				</li>
+
+			</ul>
+		</div>
+
+	</header>
+
+	<main>
+		<div>
+			<section class="main-inner">
+				<h2>記事一覧</h2>
+				<div>
+					<a th:href="@{/blog/register} " class="register-btn" id="bg-btn">記事登録
+						<i class="far fa-edit"></i>
+					</a>
+				</div>
+
+
+				<div th:each="blog : ${blogList}" class="view-con">
+					<div class="view-category">
+						<p th:text="${blog.categoryName}"></p>
+					</div>
+
+					<a th:href="@{/edit/{blogId}(blogId=${blog.blogId})}">
+						<div class="view-flex">
+
+							<div class="view-article">
+								<div class="view-column">
+									<img th:src="@{/blog-image/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+								</div>
+							</div>
+
+							<div class="view-article" id="at2">
+								<div class="column-box">
+									<p th:text="${blog.blogTitle}"></p>
+								</div>
+								<div class="view-messege">
+									<p th:text="${blog.article}"></p>
+								</div>
+							</div>
+						</div>
+					</a>
+
+				</div>
+
+
+
+		</div>
+
+
+		</section>
+		</div>
+	</main>
+
+
+	<div>
+
+		<footer>
+			<p>&copy;2024 MyBlog Style</p>
+		</footer>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script th:src="@{/js/common.js}"></script>
+
+
+</body>
+
+</html>

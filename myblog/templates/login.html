@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" th:href="@{/css/login.css}">
+	<link rel="stylesheet" th:href="@{/css/all.min.css}">
+	<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css}">
+</head>
+
+<body class="overlay">
+	<div class="con">
+		<!--オーバーレイ部分 -->
+		<form th:action="@{/admin/login/process}" method="post">
+			<div>
+				<header class="header">
+					<!-- ログイン-->
+					<h2>ログイン</h2>
+					<p>ID・パスワードを入力し、［ログイン］ボタンをクリックしてください。</p>
+				</header>
+				<div class="field">
+					<label>
+						<span class="icon">
+							<i class="far fa-user"></i>
+							<span>あなたのID</span>
+						</span>
+					</label>
+
+					<!-- userEmail入力  -->
+					<input class="input" type="email" id="email" name="userEmail" placeholder="Email">
+
+				</div>
+
+				<div class="field">
+					<label>
+						<span class="icon">
+							<i class="fa fa-key"></i>
+							<span>パスワード</span>
+						</span>
+					</label>
+
+					<!-- password入力-->
+					<input class="input" type="password" id="password" name="password" placeholder="Password">
+
+				</div>
+				<!--警告-->
+				<div th:if="${errorMessage}" class="warning-message">[[${errorMessage}]]</div>
+				<div>
+					<!-- ログインbutton-->
+					<button class="log-btn">
+						<i class="far fa-hand-point-right"></i>
+						ログイン
+					</button>
+				</div>
+
+				<div>
+					<!-- forget password and signup-->
+					<button class="figt-btn">
+						<span>
+							<i class="far fa-question-circle"></i>
+						</span>
+						パスワードを忘れた場合
+					</button>
+
+					<a href="http://localhost:8080/admin/register" class="sign-btn">
+						新規登録はこちら
+						<i class="fa fa-user-plus" aria-hidden="true"></i>
+					</a>
+				</div>
+
+			</div>
+
+
+		</form>
+
+	</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script th:src="@{/js/common.js}"></script>
+
+</html>
